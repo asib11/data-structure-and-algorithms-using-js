@@ -3,4 +3,4 @@ const sumRange = num =>{
     return num + sumRange(num-1);
 }
 
-console.log(sumRange(5))
+sumRange(5)
