@@ -1,3 +1,3 @@
-const bubbleSort =( arr, finder) =>{
-    
+const bubbleSort =( arr) =>{
+
 }
