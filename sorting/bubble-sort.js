@@ -13,3 +13,7 @@ const bubbleSort =arr =>{
 }
 
 console.log(bubbleSort([32,12,45,21,6,-3]))
+
+// const swap = (arr, inx1, inx2) =>{
+//     [arr[inx1], arr[inx2]] = [arr[inx1], arr[inx2]]
+// }
