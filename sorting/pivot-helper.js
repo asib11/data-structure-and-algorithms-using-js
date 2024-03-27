@@ -1,4 +1,5 @@
-const pivot = arr =>{
+const pivot = (arr, start, end) =>{
+
     return arr
 }
 
