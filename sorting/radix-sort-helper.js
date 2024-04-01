@@ -1,6 +1,6 @@
-const radixSortHelper = arr =>{
-    return arr
+const getDigit = (num,i) =>{
+    return Math.floor(Math.abs(num)/ Math.pow(10,i))%10;
 }
 
 
-console.log(radixSortHelper([7,4,33,98,104,667,32]))
+console.log(getDigit(1234,2))
