@@ -13,6 +13,23 @@ class SinglyLinkedList{
     }
 
     push(val){
-        
+        let newNode = new Node(val);
+        if(!this.head){
+            this.head = newNode;
+            this.tail = this.head;
+        }else{
+            this.tail.next = newNode;
+            this.tail = newNode
+        }
+        this.length++;
+        return this;
     }
 }
+
+let list = new SinglyLinkedList()
+list.push('asib');
+list.push('ahmed');
+list.push(99)
+console.log(list);
+list.push(105)
+console.log(list.head.next.next);
