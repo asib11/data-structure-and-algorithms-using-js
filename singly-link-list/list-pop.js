@@ -99,10 +99,10 @@ class SinglyLinkedList{
         return true;
     }
 
-    remove(index, val){
+    remove(index){
         if(index < 0 || index >= this.length) return undefined;
-        if(index === this.push) return !!this.pop(val) // here !! means calculate push and return true together
-        if(index === 0) return !!this.shift(val)
+        if(index === this.push) return !!this.pop() // here !! means calculate push and return true together
+        if(index === 0) return !!this.shift()
         let previous = this.get(index - 1);
         let remove = previous.next;
         previous.next = remove.next;
