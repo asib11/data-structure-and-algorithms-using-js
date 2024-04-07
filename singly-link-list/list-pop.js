@@ -85,6 +85,19 @@ class SinglyLinkedList{
         }
         return false;
     }
+
+    insert(index, val){
+        if(index < 0 || index >= this.length) return false;
+        if(index === this.push) return !!this.push(val) // here !! means calculate push and return true together
+        if(index === 0) return !!this.unshift(val)
+        let newNode = new Node(val)
+        let prev = this.get(index -1);
+        let temp = prev.next;
+        prev.next = newNode;
+        newNode.next = temp;
+        this.length++;
+        return true;
+    }
 }
 
 let list = new SinglyLinkedList()
@@ -102,3 +115,6 @@ console.log(list.shift())
 console.log(list)
 console.log(list.unshift(100))
 console.log(list.get(0))
+console.log(list.insert(0,10))
+console.log(list.insert(1,20))
+console.log(list)
