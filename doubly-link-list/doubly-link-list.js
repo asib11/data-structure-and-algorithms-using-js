@@ -26,6 +26,20 @@ class DoublyLinkList{
         this.length++;
         return this;
     }
+
+    pop(){
+        if(!this.head) return undefined;
+        let popTail = this.tail;
+        if(this.length === 1){
+            this.head = null;
+            this.tail = null;
+        }else{
+            this.tail = popTail.prev;
+            this.tail.next = null;
+        }
+        this.length--;
+        return popTail;
+    }
 }
 
 let list = new DoublyLinkList();
