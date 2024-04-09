@@ -36,6 +36,7 @@ class DoublyLinkList{
         }else{
             this.tail = popTail.prev;
             this.tail.next = null;
+            popTail.prev = null;
         }
         this.length--;
         return popTail;
@@ -47,3 +48,4 @@ list.push(10)
 list.push(20)
 list.push(30)
 console.log(list)
+console.log(list.pop())
