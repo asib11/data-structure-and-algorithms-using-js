@@ -109,10 +109,13 @@ class DoublyLinkList {
         let newNode = new Node(val);
         let beforeNode = this.get(index - 1);
         let afterNode = beforeNode.next;
-        beforeNode.next = newNode;
-        newNode.prev = beforeNode;
-        newNode.next = afterNode;
-        afterNode.prev = newNode;
+        // beforeNode.next = newNode;
+        // newNode.prev = beforeNode;
+        // newNode.next = afterNode;
+        // afterNode.prev = newNode;
+        // below 2 lines represent as pair line, nothing change above 4 lines
+        beforeNode.next = newNode,newNode.prev = beforeNode;
+        newNode.next = afterNode,afterNode.prev = newNode;
         this.length++;
         return true;
     }
