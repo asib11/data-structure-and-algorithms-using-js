@@ -41,6 +41,20 @@ class DoublyLinkList{
         this.length--;
         return popTail;
     }
+
+    shift(){
+        if(this.length === 0) return undefined;
+        let oldHead = this.head;
+        if(this.length === 1){
+            this.head = null;
+            this.tail = null
+        }
+        this.head = oldHead.next;
+        this.head.prev = null;
+        oldHead.next = null
+        this.length--;
+        return oldHead;
+    }
 }
 
 let list = new DoublyLinkList();
@@ -49,3 +63,4 @@ list.push(20)
 list.push(30)
 console.log(list)
 console.log(list.pop())
+console.log(list.shift())
