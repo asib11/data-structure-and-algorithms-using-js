@@ -23,5 +23,24 @@ class Queue{
         }
         return ++this.size
     }
+
+    dequeue(){ // dequeue = shift = remove from the begining
+        if(!this.first) return null;
+        let temp = this.first;
+        if(this.first === this.last) this.last = null;
+        this.first = this.first.next;
+        this.size--
+        return temp.val;
+    }
 }
 
+
+let queue = new Queue();
+console.log(queue.enqueue(10))
+console.log(queue.enqueue(20))
+console.log(queue.enqueue(30))
+console.log(queue)
+console.log(queue.dequeue())
+console.log(queue.dequeue())
+console.log(queue.dequeue())
+console.log(queue.dequeue())
