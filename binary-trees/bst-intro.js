@@ -1,33 +1,33 @@
-class Node{
-    constructor(value){
+class Node {
+    constructor(value) {
         this.value = value;
         this.left = null;
         this.right = null;
     }
 }
 
-class BinarySearchTree{
-    constructor(){
+class BinarySearchTree {
+    constructor() {
         this.root = null
     }
 
-    insert(value){
+    insert(value) {
         let newNode = new Node(value)
-        if(this.root === null){
+        if (this.root === null) {
             this.root = newNode;
             return this;
         }
         let current = this.root;
-        while(true){
-            if(this.root === value) return undefined;
-            if(value < current.value){
-                if(current.left === null){
+        while (true) {
+            if (this.root === value) return undefined;
+            if (value < current.value) {
+                if (current.left === null) {
                     current.left = newNode;
                     return this;
                 }
                 current = current.left;
-            }else if (value > current.value){
-                if(current.right === null){
+            } else if (value > current.value) {
+                if (current.right === null) {
                     current.right = newNode;
                     return this;
                 }
@@ -35,6 +35,35 @@ class BinarySearchTree{
             }
         }
 
+    }
+
+    find(value) {
+        if (this.root === null) return false;
+        let current = this.root;
+        let found = false;
+        while (current && !found) {
+            if (value < current.value) current = current.left;
+            else if (value > current.value) current = current.right;
+            else return true
+        }
+        return false;
+    }
+
+    contains(value) {
+        if (this.root === null) return false;
+        var current = this.root,
+            found = false;
+        while (current && !found) {
+            if (value < current.value) {
+                current = current.left;
+            } else if (value > current.value) {
+                current = current.right;
+            } else {
+                found = true;
+            }
+        }
+        if (!found) return undefined;
+        return current;
     }
 }
 
@@ -50,3 +79,7 @@ tree.insert(13)
 tree.insert(12)
 console.log(tree)
 // console.log(tree.root.right)
+console.log(tree.find(8))
+console.log(tree.find(82))
+console.log(tree.contains(82))
+console.log(tree.contains(12))
