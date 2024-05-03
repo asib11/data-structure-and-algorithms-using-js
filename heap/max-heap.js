@@ -65,7 +65,7 @@ class MaxBinaryHeap{
             }
             if(rightChildIdx < length){
                 rightChild = this.values[rightChildIdx]
-                if((swap === null && rightChild < element) || (swap !== null && rightChild > leftChild)) swap = rightChildIdx;
+                if((swap === null && rightChild > element) || (swap !== null && rightChild > leftChild)) swap = rightChildIdx;
             }
             if(swap === null) break;
             this.values[idx] = this.values[swap]; // set child index to parent index
