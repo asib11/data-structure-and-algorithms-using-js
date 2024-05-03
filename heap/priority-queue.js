@@ -1,31 +1,31 @@
-class Node{
-    constructor(val, priority){
+class Node {
+    constructor(val, priority) {
         this.val = val;
         this.priority = priority;
     }
 }
 
 
-class PriorityQueue{
-    constructor(){
+class PriorityQueue {
+    constructor() {
         this.values = [];
     }
 
 
 
-    enqueue(val, priority){
+    enqueue(val, priority) {
         let newNode = new Node(val, priority)
         this.values.push(newNode);
         this.bubbleUp()
     }
 
-    bubbleUp(){
+    bubbleUp() {
         let idx = this.values.length - 1;
         const element = this.values[idx];
-        while(idx > 0){
-            let parentIdx = Math.floor((idx-1)/2);
+        while (idx > 0) {
+            let parentIdx = Math.floor((idx - 1) / 2);
             let parent = this.values[parentIdx];
-            if(element.priority >= parent.priority) break;
+            if (element.priority >= parent.priority) break;
             this.values[parentIdx] = element;
             this.values[idx] = parent;
             idx = parentIdx;
@@ -34,32 +34,35 @@ class PriorityQueue{
 
 
 
-    dequeue(){
+    dequeue() {
         const min = this.values[0];
         const end = this.values.pop()
-        if(this.values.length > 0){
+        if (this.values.length > 0) {
             this.values[0] = end;
             this.sinkDown()
         }
         return min;
     }
-    sinkDown(){
+    sinkDown() {
         let idx = 0; // parent index
         const length = this.values.length;
         const element = this.values[0];
-        while(true){
-            let leftChildIdx = 2*idx +1;
-            let rightChildIdx = 2* idx + 2;
+        while (true) {
+            let leftChildIdx = 2 * idx + 1;
+            let rightChildIdx = 2 * idx + 2;
             let leftChild, rightChild, swap = null;
-            if(leftChildIdx < length){
+            if (leftChildIdx < length) {
                 leftChild = this.values[leftChildIdx];
-                if(leftChild.priority < element.priority) swap = leftChildIdx;
+                if (leftChild.priority < element.priority) swap = leftChildIdx;
             }
-            if(rightChildIdx < length){
+            if (rightChildIdx < length) {
                 rightChild = this.values[rightChildIdx]
-                if((swap === null && rightChild.priority < element.priority) || (swap !== null && rightChild.priority < leftChild.priority)) swap = rightChildIdx;
+                if ((swap === null && rightChild.priority < element.priority) ||
+                    (swap !== null && rightChild.priority < leftChild.priority)) {
+                    swap = rightChildIdx;
+                }
             }
-            if(swap === null) break;
+            if (swap === null) break;
             this.values[idx] = this.values[swap]; // set child index to parent index
             this.values[swap] = element;
             idx = swap;
@@ -75,6 +78,7 @@ heap.enqueue('tanveer', 2)
 heap.enqueue('tayeb', 4)
 heap.enqueue('brsity', 3)
 console.log(heap)
+console.log(heap.dequeue())
 console.log(heap.dequeue())
 console.log(heap.dequeue())
 console.log(heap.dequeue())
