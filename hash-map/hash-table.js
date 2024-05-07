@@ -1,5 +1,5 @@
 class HashTable{
-    constructor(size=53){
+    constructor(size=4){
         this.keyMap = new Array(size)
     }
 
@@ -13,4 +13,18 @@ class HashTable{
         }
         return total
     }
+
+    set(key, value){
+        let index = this._hash(key);
+        if(!this.keyMap[index]) this.keyMap[index] = []
+        this.keyMap[index].push([key,value])
+    }
 }
+
+let ht = new HashTable();
+ht.set('name', 'asib')
+ht.set('fname', 'tanveer')
+ht.set('lname', 'tayeb')
+ht.set('middleName', 'nuyakhali')
+ht.set('fourthName', 'kushtia')
+console.log(ht)
