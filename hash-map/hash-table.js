@@ -19,6 +19,16 @@ class HashTable{
         if(!this.keyMap[index]) this.keyMap[index] = []
         this.keyMap[index].push([key,value])
     }
+
+    get(key){
+        let index = this._hash(key)
+        if(this.keyMap[index]){
+            for(let i = 0; i< this.keyMap[index].length; i++){
+                if(this.keyMap[index][i][0] === key) return this.keyMap[index][i][1]
+            }
+        }
+        return undefined;
+    }
 }
 
 let ht = new HashTable();
@@ -28,3 +38,4 @@ ht.set('lname', 'tayeb')
 ht.set('middleName', 'nuyakhali')
 ht.set('fourthName', 'kushtia')
 console.log(ht)
+console.log(ht.get('lname'))
