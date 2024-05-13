@@ -31,7 +31,15 @@ class HashTable{
     }
 
     value(){
-        
+        let valueArr = [];
+        for(let i = 0; i< this.keyMap.length; i++){
+            if(this.keyMap[i]){
+                for(let j = 0; j< this.keyMap[i].length; j++){
+                    if(!valueArr.includes(this.keyMap[i][j][1])) valueArr.push(this.keyMap[i][j][1])
+                }
+            }
+        }
+        return valueArr
     }
 }
 
@@ -39,7 +47,8 @@ let ht = new HashTable();
 ht.set('name', 'asib')
 ht.set('fname', 'tanveer')
 ht.set('lname', 'tayeb')
-ht.set('middleName', 'nuyakhali')
+ht.set('middleName', 'kushtia')
 ht.set('fourthName', 'kushtia')
 console.log(ht)
 console.log(ht.get('lname'))
+console.log(ht.value())
