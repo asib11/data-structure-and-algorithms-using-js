@@ -30,6 +30,18 @@ class HashTable{
         return undefined;
     }
 
+    keys(){
+        let keyArr = [];
+        for(let i = 0; i< this.keyMap.length; i++){
+            if(this.keyMap[i]){
+                for(let j = 0; j< this.keyMap[i].length; j++){
+                    if(!keyArr.includes(this.keyMap[i][j][0])) keyArr.push(this.keyMap[i][j][0])
+                }
+            }
+        }
+        return keyArr
+    }
+
     value(){
         let valueArr = [];
         for(let i = 0; i< this.keyMap.length; i++){
@@ -52,3 +64,4 @@ ht.set('fourthName', 'kushtia')
 console.log(ht)
 console.log(ht.get('lname'))
 console.log(ht.value())
+console.log(ht.keys())
