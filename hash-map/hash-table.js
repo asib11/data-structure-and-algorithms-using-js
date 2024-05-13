@@ -29,6 +29,10 @@ class HashTable{
         }
         return undefined;
     }
+
+    value(){
+        
+    }
 }
 
 let ht = new HashTable();
