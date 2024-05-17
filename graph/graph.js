@@ -16,6 +16,14 @@ class Graph{
         this.adjacencyList[v1] = this.adjacencyList[v1].filter(v => v !== v2)
         this.adjacencyList[v2] = this.adjacencyList[v2].filter(v => v !== v1)
     }
+
+    removeVertex(vertex){
+        while(this.adjacencyList[vertex].length){
+            const adjacencyVertex = this.adjacencyList[vertex].pop()
+            this.removeEdge(vertex, adjacencyVertex);
+        }
+        delete this.adjacencyList[vertex]
+    }
 }
 
 let g = new Graph()
@@ -28,4 +36,6 @@ g.addEdge('asib', 'tanveer')
 g.addEdge('ahmed', 'tanveer')
 console.log(g)
 g.removeEdge('ahmed', 'tanveer')
+console.log(g)
+g.removeVertex('ahmed')
 console.log(g)
